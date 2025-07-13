@@ -1,0 +1,66 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+.env/
+.venv/
+ENV/
+env.bak/
+env/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# MLflow artifacts
+mlruns/
+mlflow.db
+
+# Local data files
+data/raw/
+data/processed/
+data/final/
+*.csv
+*.parquet
+*.pkl
+*.json
+*.crc
+
+# Logs
+*.log
+logs/
+logfile.txt
+
+# VS Code settings
+.vscode/
+*.code-workspace
+
+# PySpark temp files
+.metastore_db/
+derby.log
+
+# Docker files
+*.tar
+docker-compose.override.yml
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Test artifacts
+*.egg-info/
+build/
+dist/
+
+# Ignore models
+models/
+*.joblib
+*.sav
+*.h5
+
+# Ignore temporary files
+*.bak
+*.tmp
+*.swp

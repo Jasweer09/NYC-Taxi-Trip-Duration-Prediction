@@ -1,0 +1,15 @@
+dataset: NYC Taxi Trip Duration
+source: Kaggle
+rows: ~55 million
+columns:
+  - id: unique trip id
+  - vendor_id: taxi company
+  - pickup_datetime: datetime
+  - dropoff_datetime: datetime
+  - passenger_count: integer
+  - pickup_longitude: float
+  - pickup_latitude: float
+  - dropoff_longitude: float
+  - dropoff_latitude: float
+  - store_and_fwd_flag: Y/N
+  - trip_duration: seconds (target)
