@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Taxi Trip Duration Predictor</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5 p-4 bg-white rounded shadow">
+  <h2 class="mb-4">🚖 NYC Taxi Trip Duration Predictor</h2>
+
+  {% if prediction %}
+    <div class="alert alert-success">
+      <strong>Predicted Trip Duration:</strong> {{ prediction }} seconds
+    </div>
+  {% endif %}
+
+  {% if error %}
+    <div class="alert alert-danger">
+      <strong>Error:</strong> {{ error }}
+    </div>
+  {% endif %}
+
+  <form method="POST" action="/predict">
+    <div class="row mb-3">
+      <div class="col">
+        <label>Passenger Count</label>
+        <input type="number" name="passenger_count" class="form-control" min="1" max="6" required>
+      </div>
+      <div class="col">
+        <label>Vendor ID
+          <span data-bs-toggle="tooltip" title="1 or 2 — depending on which company sent the trip">ℹ️</span>
+        </label>
+        <select class="form-select" name="vendor_id" required>
+          <option value="1">1</option>
+          <option value="2">2</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col">
+        <label>Pickup Longitude</label>
+        <input type="number" step="0.0001" name="pickup_longitude" class="form-control" min="-74.05" max="-73.75" required>
+      </div>
+      <div class="col">
+        <label>Pickup Latitude</label>
+        <input type="number" step="0.0001" name="pickup_latitude" class="form-control" min="40.63" max="40.85" required>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col">
+        <label>Dropoff Longitude</label>
+        <input type="number" step="0.0001" name="dropoff_longitude" class="form-control" min="-74.05" max="-73.75" required>
+      </div>
+      <div class="col">
+        <label>Dropoff Latitude</label>
+        <input type="number" step="0.0001" name="dropoff_latitude" class="form-control" min="40.63" max="40.85" required>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col">
+        <label>Store and Forward Flag
+          <span data-bs-toggle="tooltip" title="Whether the trip data was stored and forwarded due to connection loss.">ℹ️</span>
+        </label>
+        <select class="form-select" name="store_and_fwd_flag" required>
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select>
+      </div>
+
+      <div class="col">
+        <label>Trip Hour <span data-bs-toggle="tooltip" title="Hour of pickup in 24-hr format">ℹ️</span></label>
+        <select class="form-select" name="trip_hour" required>
+          {% for hour in range(1, 24) %}
+            <option value="{{ hour }}">{{ hour }}</option>
+          {% endfor %}
+        </select>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col">
+        <label>Is Peak Hour?</label>
+        <select class="form-select" name="is_peak_hour" required>
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select>
+      </div>
+
+      <div class="col">
+        <label>Day of Week</label>
+        <select class="form-select" name="trip_dayofweek" required>
+          <option value="0">Monday</option>
+          <option value="1">Tuesday</option>
+          <option value="2">Wednesday</option>
+          <option value="3">Thursday</option>
+          <option value="4">Friday</option>
+          <option value="5">Saturday</option>
+          <option value="6">Sunday</option>
+        </select>
+      </div>
+    </div>
+
+    <button class="btn btn-success">Predict Duration</button>
+  </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const tooltips = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+  tooltips.forEach(t => new bootstrap.Tooltip(t));
+</script>
+</body>
+</html>

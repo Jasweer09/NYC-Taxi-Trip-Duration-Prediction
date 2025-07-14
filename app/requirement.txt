@@ -4,3 +4,7 @@ scikit-learn
 joblib
 pydantic
 numpy
+pandas
+mlflow
+jinja2
+python-multipart
