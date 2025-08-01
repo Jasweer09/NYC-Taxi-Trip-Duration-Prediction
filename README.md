@@ -111,6 +111,7 @@ Goal: Predict the trip duration (in seconds) of a NYC taxi ride based on ride ch
 **📂 Project Structure**
      Projectstructure
      ![Screenshot](images/Projectstructure.png)
+     
 **🚧 Limitations & Future Work**
 - 🔒 Model not hosted online due to size limits
 - 🔄 Can integrate with PostgreSQL or cloud DB for logging inputs
