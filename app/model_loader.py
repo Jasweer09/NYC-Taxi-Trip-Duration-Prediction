@@ -8,7 +8,7 @@ def download_model_from_drive():
         os.makedirs("model", exist_ok=True)
         
         # Replace FILE_ID with your actual file ID from the shareable link
-        file_id = "YOUR_FILE_ID_HERE"
+        file_id = "1VgjFrEtSTXAl3ks-dYLBaIe17bdpWSIk"
         url = f"https://drive.google.com/uc?id={file_id}"
         
         gdown.download(url, model_path, quiet=False)
