@@ -1,33 +1,26 @@
+import gdown
 import os
-import pickle
-import requests
 
-def download_model_from_drive(file_id, dest_path):
-    print("Checking if model exists...")
-    if os.path.exists(dest_path):
+def download_model_from_drive():
+    model_path = "model/model.pkl"
+    if not os.path.exists(model_path):
+        print("Downloading model from Google Drive...")
+        os.makedirs("model", exist_ok=True)
+        
+        # Replace FILE_ID with your actual file ID from the shareable link
+        file_id = "YOUR_FILE_ID_HERE"
+        url = f"https://drive.google.com/uc?id={file_id}"
+        
+        gdown.download(url, model_path, quiet=False)
+        print(f"Model downloaded and saved to: {model_path}")
+    else:
         print("Model already exists.")
-        return
 
-    print("Downloading model from Google Drive...")
-    url = f"https://drive.google.com/uc?export=download&id={file_id}"
-    response = requests.get(url)
-    os.makedirs(os.path.dirname(dest_path), exist_ok=True)
-    with open(dest_path, "wb") as f:
-        f.write(response.content)
-    print("Model downloaded and saved to:", dest_path)
+# Call it when loading model
+download_model_from_drive()
 
-# Set your Google Drive File ID here
-FILE_ID = "1VgjFrEtSTXAl3ks-dYLBaIe17bdpWSIk"  # <-- replace with yours
-MODEL_PATH = "model/model.pkl"
+# Then load it as usual
+import pickle
 
-# Download the model if not present
-download_model_from_drive(FILE_ID, MODEL_PATH)
-
-# Load the model
-with open(MODEL_PATH, "rb") as f:
+with open("model/model.pkl", "rb") as f:
     model = pickle.load(f)
-
-def load_ridge_model():
-    return model
-
-
