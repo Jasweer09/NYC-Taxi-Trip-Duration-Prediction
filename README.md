@@ -14,11 +14,12 @@ Goal: Predict the trip duration (in seconds) of a NYC taxi ride based on ride ch
 
 **Local Deployment SS:**
    - _Landing Page_
-      - ![Screenshot](images/image.png)
+       ![Screenshot](images/image.png)
    - _Details for Prediction_
-      - ![Screenshot](images/Deatils_for_Prediction.png)
+     ![Screenshot](images/Deatils_for_Prediction.png)
    - _Prediction_
-      - ![Screenshot](images/Prediction.png)
+     ![Screenshot](images/Prediction.png)
+
 **🧠 ML Workflow**
    1. Data Processing using PySpark
       
