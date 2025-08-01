@@ -8,3 +8,4 @@ pandas
 mlflow
 jinja2
 python-multipart
+gdown
