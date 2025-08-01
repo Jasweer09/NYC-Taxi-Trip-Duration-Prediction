@@ -109,19 +109,8 @@ Goal: Predict the trip duration (in seconds) of a NYC taxi ride based on ride ch
          - Then open http://localhost:8000
 
 **📂 Project Structure**
-      - .
-      - ├── app/
-      - │   ├── main.py               # FastAPI app
-      - │   ├── model_loader.py       # Load MLflow model + preprocess
-      - │   ├── schemas.py            # Input schema with Pydantic
-      - │   ├── templates/            # Jinja2 HTML templates
-      - │   ├── static/               # Static assets
-      - │   ├── requirements.txt
-      - ├── spark_pipeline.py         # Data cleaning + feature creation
-      - ├── mlflow_experiment.py      # Train & log model
-      - ├── Dockerfile
-      - ├── README.md
-
+     Projectstructure
+     ![Screenshot](images/Projectstructure.png)
 **🚧 Limitations & Future Work**
 - 🔒 Model not hosted online due to size limits
 - 🔄 Can integrate with PostgreSQL or cloud DB for logging inputs
