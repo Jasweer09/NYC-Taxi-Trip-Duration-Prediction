@@ -12,6 +12,13 @@ Goal: Predict the trip duration (in seconds) of a NYC taxi ride based on ride ch
 - Driver dispatch and planning
 - Fare estimation
 
+**Local Deployment SS:**
+   - _Landing Page_
+      - ![Screenshot](images/image.png)
+   - _Details for Prediction_
+      - ![Screenshot](images/Deatils_for_prediction.png)
+   - _Prediction_
+      - ![Screenshot](images/Prediction.png)
 **🧠 ML Workflow**
    1. Data Processing using PySpark
       
